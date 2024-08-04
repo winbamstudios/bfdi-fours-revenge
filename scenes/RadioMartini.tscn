@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpctysygixs1w"]
+
+[ext_resource type="AudioStream" uid="uid://cjugqimmfpj8a" path="res://assets/music/rm-original.mp3" id="1_61lhg"]
+
+[node name="RadioMartini" type="AudioStreamPlayer"]
+stream = ExtResource("1_61lhg")
+autoplay = true
