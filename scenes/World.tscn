@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://dixepkf35rksv"]
+[gd_scene load_steps=6 format=4 uid="uid://dixepkf35rksv"]
 
 [ext_resource type="Texture2D" uid="uid://domalcmna0wx6" path="res://assets/tiles/goikytileset.png" id="1_h41qs"]
 [ext_resource type="PackedScene" uid="uid://b43mekdip1mkm" path="res://scenes/Player.tscn" id="2_soacj"]
@@ -16,9 +16,6 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_gkwi7")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_or1ys"]
-size = Vector2(5276, 739.5)
-
 [node name="World" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -30,10 +27,3 @@ tile_set = SubResource("TileSet_1ccfl")
 position = Vector2(636, 358)
 
 [node name="RadioMartini" parent="." instance=ExtResource("3_h8r5t")]
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(539, 2353.25)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("RectangleShape2D_or1ys")
-one_way_collision = true

@@ -1,10 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://b43mekdip1mkm"]
+[gd_scene load_steps=28 format=3 uid="uid://b43mekdip1mkm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_rdmte"]
 [ext_resource type="Texture2D" uid="uid://bo8vtht3qcahj" path="res://assets/characters/pencil-spritesheet.png" id="2_axf0c"]
 [ext_resource type="Texture2D" uid="uid://00aumc6wf6ll" path="res://assets/characters/yetagain.png" id="3_v30hq"]
 [ext_resource type="Texture2D" uid="uid://d0o1ntxhiwyy6" path="res://assets/characters/pencil-spritesheet-v2.png" id="4_renbp"]
 [ext_resource type="PackedScene" uid="uid://dm75p4vc7ralk" path="res://scenes/OverWorldHealthBar.tscn" id="5_ga711"]
+[ext_resource type="FontFile" uid="uid://dcq6ufs8n57j5" path="res://assets/menu/shaglounge.ttf" id="6_0mm81"]
+[ext_resource type="Texture2D" uid="uid://ctlt1imgp54k" path="res://assets/characters/hamburger-menu.png" id="7_r0e40"]
+[ext_resource type="PackedScene" uid="uid://c4n6ujpxq7a0r" path="res://scenes/PauseMenu.tscn" id="8_ewcar"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hx446"]
 atlas = ExtResource("2_axf0c")
@@ -160,7 +163,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwooa"]
 size = Vector2(64, 64)
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_c0jh7"]
+font = ExtResource("6_0mm81")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_8b5k0"]
+font = ExtResource("6_0mm81")
+font_size = 48
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+position = Vector2(-5, -4)
 script = ExtResource("1_rdmte")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -178,5 +190,44 @@ offset_right = -637.0
 offset_bottom = -365.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(37, 37)
+position = Vector2(37, 36)
 shape = SubResource("RectangleShape2D_mwooa")
+
+[node name="dialog" type="Panel" parent="."]
+offset_left = -456.0
+offset_top = -340.0
+offset_right = 458.0
+offset_bottom = -135.0
+
+[node name="Label" type="Label" parent="dialog"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 868.0
+offset_bottom = 186.0
+text = "dialog text yippee"
+label_settings = SubResource("LabelSettings_c0jh7")
+
+[node name="ticker" type="Label" parent="dialog"]
+layout_mode = 0
+offset_left = 885.0
+offset_top = 156.0
+offset_right = 905.0
+offset_bottom = 200.0
+text = ">"
+label_settings = SubResource("LabelSettings_8b5k0")
+
+[node name="Pause" type="Button" parent="."]
+offset_left = 577.0
+offset_top = -355.0
+offset_right = 633.0
+offset_bottom = -299.0
+icon = ExtResource("7_r0e40")
+
+[node name="PauseMenu" parent="." instance=ExtResource("8_ewcar")]
+offset_left = -642.0
+offset_top = -362.0
+offset_right = -642.0
+offset_bottom = -362.0
+
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]

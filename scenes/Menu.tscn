@@ -25,7 +25,7 @@ resource_name = "logobounce"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Label:position")
+tracks/0/path = NodePath("../MenuLabel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -40,7 +40,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Label:position")
+tracks/0/path = NodePath("../MenuLabel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -65,7 +65,7 @@ texture = ExtResource("1_jxu5e")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="."]
+[node name="MenuLabel" type="Label" parent="."]
 offset_left = 790.0
 offset_top = 240.0
 offset_right = 994.0
@@ -74,7 +74,7 @@ text = "Pre-Alpha"
 label_settings = SubResource("LabelSettings_jsqx4")
 script = ExtResource("3_krysv")
 
-[node name="Label2" type="Label" parent="Label"]
+[node name="Label2" type="Label" parent="MenuLabel"]
 offset_left = -506.0
 offset_top = -157.0
 offset_right = -302.0
@@ -82,7 +82,7 @@ offset_bottom = -113.0
 text = "BFDI:"
 label_settings = SubResource("LabelSettings_jsqx4")
 
-[node name="Label3" type="Label" parent="Label"]
+[node name="Label3" type="Label" parent="MenuLabel"]
 offset_left = -511.0
 offset_top = -109.0
 offset_right = 205.0
@@ -90,7 +90,7 @@ offset_bottom = -10.0
 text = "Four's Revenge"
 label_settings = SubResource("LabelSettings_22i3u")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MenuLabel"]
 root_node = NodePath("../../TextureRect2")
 libraries = {
 "": SubResource("AnimationLibrary_hw8ku")

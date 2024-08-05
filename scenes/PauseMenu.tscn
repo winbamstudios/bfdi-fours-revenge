@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4n6ujpxq7a0r"]
+
+[ext_resource type="FontFile" uid="uid://dcq6ufs8n57j5" path="res://assets/menu/shaglounge.ttf" id="1_5tg6g"]
+[ext_resource type="Script" path="res://scenes/PauseButtons.gd" id="1_vpqcx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2g0ch"]
+font = ExtResource("1_5tg6g")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_iwvnr"]
+font = ExtResource("1_5tg6g")
+font_size = 24
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vpqcx")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 1318.0
+offset_bottom = 743.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 149.0
+offset_right = 935.0
+offset_bottom = 566.0
+alignment = 1
+
+[node name="PauseText" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "PAUSED!"
+label_settings = SubResource("LabelSettings_2g0ch")
+horizontal_alignment = 1
+
+[node name="Continue" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = " "
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Continue"]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 6.0
+offset_right = 315.0
+offset_bottom = 29.0
+text = "Continue"
+label_settings = SubResource("LabelSettings_iwvnr")
+horizontal_alignment = 1
+
+[node name="Options" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = " "
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Options"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 6.0
+offset_right = 313.0
+offset_bottom = 29.0
+text = "Options"
+label_settings = SubResource("LabelSettings_iwvnr")
+horizontal_alignment = 1
+
+[node name="Quit Game" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = " "
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Quit Game"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 6.0
+offset_right = 322.0
+offset_bottom = 29.0
+text = "Quit Game"
+label_settings = SubResource("LabelSettings_iwvnr")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Panel/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]

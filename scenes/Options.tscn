@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk81xf45p88v5"]
+
+[ext_resource type="Script" path="res://scenes/Options.gd" id="1_hp0w0"]
+[ext_resource type="FontFile" uid="uid://dcq6ufs8n57j5" path="res://assets/menu/shaglounge.ttf" id="2_fj74j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2g0ch"]
+font = ExtResource("2_fj74j")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_iwvnr"]
+font = ExtResource("2_fj74j")
+font_size = 24
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hp0w0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 1318.0
+offset_bottom = 743.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 149.0
+offset_right = 935.0
+offset_bottom = 566.0
+alignment = 1
+
+[node name="PauseText" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_2g0ch")
+horizontal_alignment = 1
+
+[node name="Continue" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = " "
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Continue"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 5.0
+offset_right = 383.0
+offset_bottom = 28.0
+text = "Sorry, no options yet."
+label_settings = SubResource("LabelSettings_iwvnr")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Panel/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
