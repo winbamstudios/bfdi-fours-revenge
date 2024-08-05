@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://48r3ic45yoyo"]
+[gd_scene load_steps=3 format=3 uid="uid://jm8mlwqta4qd"]
 
 [ext_resource type="Texture2D" uid="uid://dv6gsu45l84le" path="res://assets/menu/BFDIFRMenuBG.png" id="1_hbbid"]
 [ext_resource type="Script" path="res://scenes/switchscenetogame.gd" id="2_eq3q2"]
