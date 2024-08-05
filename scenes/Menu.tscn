@@ -67,9 +67,9 @@ stretch_mode = 4
 
 [node name="MenuLabel" type="Label" parent="."]
 offset_left = 790.0
-offset_top = 240.0
+offset_top = 249.0
 offset_right = 994.0
-offset_bottom = 284.0
+offset_bottom = 293.0
 text = "Pre-Alpha"
 label_settings = SubResource("LabelSettings_jsqx4")
 script = ExtResource("3_krysv")
@@ -96,17 +96,53 @@ libraries = {
 "": SubResource("AnimationLibrary_hw8ku")
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="Continue" type="Button" parent="."]
 offset_left = 466.0
 offset_top = 424.0
 offset_right = 818.0
-offset_bottom = 540.0
+offset_bottom = 482.0
+theme_override_fonts/font = ExtResource("3_wyi2b")
+theme_override_font_sizes/font_size = 32
 text = "Continue
-(no save files yet)"
+"
+script = ExtResource("2_eq3q2")
+
+[node name="Cutscene" type="Button" parent="."]
+offset_left = 466.0
+offset_top = 486.0
+offset_right = 818.0
+offset_bottom = 514.0
+theme_override_fonts/font = ExtResource("3_wyi2b")
+theme_override_font_sizes/font_size = 16
+text = "Cutscene Test (III Recap)"
+script = ExtResource("2_eq3q2")
+
+[node name="Cutscene2" type="Button" parent="."]
+offset_left = 466.0
+offset_top = 518.0
+offset_right = 818.0
+offset_bottom = 546.0
+theme_override_fonts/font = ExtResource("3_wyi2b")
+theme_override_font_sizes/font_size = 16
+text = "Cutscene Test (II2 Recap)"
+script = ExtResource("2_eq3q2")
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 466.0
+offset_top = 550.0
+offset_right = 818.0
+offset_bottom = 578.0
+theme_override_fonts/font = ExtResource("3_wyi2b")
+theme_override_font_sizes/font_size = 16
+text = "Quit Game
+"
 script = ExtResource("2_eq3q2")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_4y654")
 autoplay = true
 
-[connection signal="pressed" from="Button" to="Button" method="_on_menu_pressed"]
+[connection signal="pressed" from="Continue" to="Continue" method="_on_menu_pressed"]
+[connection signal="pressed" from="Cutscene" to="MenuLabel" method="_on_cutscene_pressed"]
+[connection signal="pressed" from="Cutscene2" to="MenuLabel" method="_on_cutscene_2_pressed"]
+[connection signal="pressed" from="Quit" to="MenuLabel" method="_on_quit_pressed"]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://biedm5g2r066j"]
+
+[ext_resource type="Script" path="res://scenes/VideoControls.gd" id="1_yvtq6"]
+[ext_resource type="VideoStream" path="res://assets/videos/iii recap.ogv" id="2_336wk"]
+[ext_resource type="FontFile" uid="uid://dcq6ufs8n57j5" path="res://assets/menu/shaglounge.ttf" id="3_yir4b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oknp3"]
+font = ExtResource("3_yir4b")
+font_size = 24
+
+[node name="VideoPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yvtq6")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+stream = ExtResource("2_336wk")
+autoplay = true
+
+[node name="Pause" type="Button" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 683.0
+offset_right = 70.0
+offset_bottom = 714.0
+text = "PAUSE"
+
+[node name="Quit Video" type="Button" parent="."]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 683.0
+offset_right = 136.0
+offset_bottom = 714.0
+text = "MENU"
+
+[node name="Quit Game" type="Button" parent="."]
+text = " "
+
+[node name="Label" type="Label" parent="Quit Game"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 6.0
+offset_right = 322.0
+offset_bottom = 29.0
+text = "Quit Game"
+label_settings = SubResource("LabelSettings_oknp3")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Quit Video" to="." method="_on_quit_video_pressed"]

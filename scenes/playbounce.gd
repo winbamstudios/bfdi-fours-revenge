@@ -10,3 +10,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$AnimationPlayer.speed_scale = 1.2
 	$AnimationPlayer.play("logobounce")
+
+
+func _on_cutscene_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/VideoPlayIII.tscn")
+
+
+func _on_cutscene_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/VideoPlayII2.tscn")
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()

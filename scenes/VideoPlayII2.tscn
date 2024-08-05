@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp3dgv8tr2hwj"]
+
+[ext_resource type="Script" path="res://scenes/VideoControls.gd" id="1_ch0bb"]
+[ext_resource type="VideoStream" path="res://assets/videos/ii2 recap.ogv" id="2_ymr6f"]
+
+[node name="VideoPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ch0bb")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+stream = ExtResource("2_ymr6f")
+autoplay = true
+
+[node name="Pause" type="Button" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 683.0
+offset_right = 70.0
+offset_bottom = 714.0
+text = "PAUSE"
+
+[node name="Quit Video" type="Button" parent="."]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 683.0
+offset_right = 136.0
+offset_bottom = 714.0
+text = "MENU"
+
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Quit Video" to="." method="_on_quit_video_pressed"]
