@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://b43mekdip1mkm"]
+[gd_scene load_steps=23 format=3 uid="uid://b43mekdip1mkm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_rdmte"]
 [ext_resource type="Texture2D" uid="uid://bo8vtht3qcahj" path="res://assets/characters/pencil-spritesheet.png" id="2_axf0c"]
 [ext_resource type="Texture2D" uid="uid://00aumc6wf6ll" path="res://assets/characters/yetagain.png" id="3_v30hq"]
 [ext_resource type="Texture2D" uid="uid://d0o1ntxhiwyy6" path="res://assets/characters/pencil-spritesheet-v2.png" id="4_renbp"]
+[ext_resource type="PackedScene" uid="uid://dm75p4vc7ralk" path="res://scenes/OverWorldHealthBar.tscn" id="5_ga711"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwooa"]
 size = Vector2(64, 64)
@@ -170,4 +171,12 @@ shape = SubResource("RectangleShape2D_mwooa")
 position = Vector2(37, 37)
 sprite_frames = SubResource("SpriteFrames_mifuk")
 animation = &"idlefront"
-frame_progress = 0.196423
+frame_progress = 0.190219
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="OverWorldHealthBar" parent="." instance=ExtResource("5_ga711")]
+offset_left = -637.0
+offset_top = -365.0
+offset_right = -637.0
+offset_bottom = -365.0

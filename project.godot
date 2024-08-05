@@ -19,6 +19,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 RadioMartini="*res://scenes/RadioMartini.tscn"
+State="*res://scripts/State.gd"
 
 [display]
 

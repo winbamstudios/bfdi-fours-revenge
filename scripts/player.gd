@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
-const speed = 150
+var speed = 150
 var current_dir = "none"
 
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
+	sprint(delta)
 
 func play_anim(movement):
 	var dir = current_dir
@@ -34,6 +35,12 @@ func play_anim(movement):
 			anim.play("walkforward")
 		elif movement == 0:
 			anim.play("idlefront")
+
+func sprint(delta):
+	if Input.is_key_pressed(KEY_SHIFT):
+		speed = 225
+	else:
+		speed = 150
 
 func player_movement(delta):
 	if Input.is_action_pressed("ui_right"):

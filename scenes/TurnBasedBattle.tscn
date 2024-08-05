@@ -1,4 +1,27 @@
-[gd_scene format=3 uid="uid://crvwi3dk8wjnd"]
+[gd_scene load_steps=10 format=3 uid="uid://crvwi3dk8wjnd"]
+
+[ext_resource type="Script" path="res://scenes/Battle.gd" id="1_8si6b"]
+[ext_resource type="Texture2D" uid="uid://hu6clyitbupb" path="res://assets/bg/battlebg.png" id="1_lkne8"]
+[ext_resource type="Texture2D" uid="uid://w1k8y4uesrfi" path="res://assets/characters/four bfb.png" id="2_5kfm3"]
+[ext_resource type="FontFile" uid="uid://dcq6ufs8n57j5" path="res://assets/menu/shaglounge.ttf" id="3_fnewc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xeiq"]
+bg_color = Color(1, 0.152253, 0.0991727, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jb2ww"]
+bg_color = Color(0, 0.734686, 0.259781, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j7dj3"]
+font = ExtResource("3_fnewc")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_mdbyf"]
+font = ExtResource("3_fnewc")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_ghcnd"]
+font = ExtResource("3_fnewc")
+font_size = 48
 
 [node name="TurnBasedBattle" type="Control"]
 layout_mode = 3
@@ -7,8 +30,120 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8si6b")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="bg" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1276.0
+offset_bottom = 720.0
+texture = ExtResource("1_lkne8")
+
+[node name="enemy container" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 107.0
+offset_right = 824.0
+offset_bottom = 620.0
+
+[node name="ProgressBar" type="ProgressBar" parent="enemy container"]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5xeiq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jb2ww")
+step = 1.0
+value = 50.0
+
+[node name="four bfb" type="TextureRect" parent="enemy container"]
+layout_mode = 2
+texture = ExtResource("2_5kfm3")
+
+[node name="FightPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 616.0
+offset_right = 1308.0
+offset_bottom = 723.0
+
+[node name="PlayerData" type="HBoxContainer" parent="FightPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="FightPanel/PlayerData"]
+layout_mode = 2
+text = "PENCIL"
+label_settings = SubResource("LabelSettings_j7dj3")
+
+[node name="ProgressBar" type="ProgressBar" parent="FightPanel/PlayerData"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_5xeiq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jb2ww")
+step = 1.0
+value = 50.0
+
+[node name="ActualFightPanel" type="Panel" parent="."]
+offset_top = -7.0
+offset_right = 1277.0
+offset_bottom = 100.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ActualFightPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Attack" type="Button" parent="ActualFightPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fnewc")
+theme_override_font_sizes/font_size = 48
+text = "  ATTACK  "
+
+[node name="Defend" type="Button" parent="ActualFightPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fnewc")
+theme_override_font_sizes/font_size = 48
+text = "  DEFEND  "
+
+[node name="Run_" type="Button" parent="ActualFightPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fnewc")
+theme_override_font_sizes/font_size = 48
+text = "  RUN  "
+
+[node name="dialog" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 132.0
+offset_right = 1089.0
+offset_bottom = 337.0
+
+[node name="Label" type="Label" parent="dialog"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 293.0
+offset_bottom = 62.0
+text = "A wild FOUR appears!"
+label_settings = SubResource("LabelSettings_mdbyf")
+
+[node name="ticker" type="Label" parent="dialog"]
+layout_mode = 0
+offset_left = 885.0
+offset_top = 156.0
+offset_right = 905.0
+offset_bottom = 200.0
+text = ">"
+label_settings = SubResource("LabelSettings_ghcnd")
+
+[connection signal="pressed" from="ActualFightPanel/HBoxContainer/Run_" to="." method="_on_run__pressed"]
