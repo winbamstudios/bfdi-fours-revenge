@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://jm8mlwqta4qd"]
+[gd_scene load_steps=3 format=3 uid="uid://48r3ic45yoyo"]
 
 [ext_resource type="Texture2D" uid="uid://dv6gsu45l84le" path="res://assets/menu/BFDIFRMenuBG.png" id="1_hbbid"]
-[ext_resource type="Script" path="res://scripts/menu.gd" id="2_j5kxl"]
+[ext_resource type="Script" path="res://scenes/switchscenetogame.gd" id="2_eq3q2"]
 
 [node name="MarginContainer" type="Node2D"]
 
@@ -18,6 +18,6 @@ offset_top = 424.0
 offset_right = 818.0
 offset_bottom = 540.0
 text = "Continue"
-script = ExtResource("2_j5kxl")
+script = ExtResource("2_eq3q2")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_menu_pressed"]

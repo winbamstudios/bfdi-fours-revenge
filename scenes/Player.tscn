@@ -170,4 +170,4 @@ shape = SubResource("RectangleShape2D_mwooa")
 position = Vector2(37, 37)
 sprite_frames = SubResource("SpriteFrames_mifuk")
 animation = &"idlefront"
-frame_progress = 0.0622711
+frame_progress = 0.196423
