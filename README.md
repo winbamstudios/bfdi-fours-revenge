@@ -7,3 +7,4 @@ If you are not on the project, your pull requests or commits will NOT be accepte
 
 This project uses Godot 4.3 RC2. This will probably not work with older versions (like 4.2.2)
  
+ 
