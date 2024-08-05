@@ -1,7 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://b43mekdip1mkm"]
+[gd_scene load_steps=22 format=3 uid="uid://b43mekdip1mkm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_rdmte"]
 [ext_resource type="Texture2D" uid="uid://bo8vtht3qcahj" path="res://assets/characters/pencil-spritesheet.png" id="2_axf0c"]
+[ext_resource type="Texture2D" uid="uid://00aumc6wf6ll" path="res://assets/characters/yetagain.png" id="3_v30hq"]
+[ext_resource type="Texture2D" uid="uid://d0o1ntxhiwyy6" path="res://assets/characters/pencil-spritesheet-v2.png" id="4_renbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwooa"]
+size = Vector2(64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hx446"]
 atlas = ExtResource("2_axf0c")
@@ -19,37 +24,33 @@ region = Rect2(0, 128, 64, 64)
 atlas = ExtResource("2_axf0c")
 region = Rect2(64, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_04kfl"]
-atlas = ExtResource("2_axf0c")
-region = Rect2(0, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oi4jh"]
-atlas = ExtResource("2_axf0c")
-region = Rect2(192, 128, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddh1j"]
 atlas = ExtResource("2_axf0c")
 region = Rect2(64, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3c2gb"]
-atlas = ExtResource("2_axf0c")
-region = Rect2(192, 128, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vvrb"]
+atlas = ExtResource("3_v30hq")
+region = Rect2(0, 195, 64, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_86kmg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_04kfl"]
 atlas = ExtResource("2_axf0c")
-region = Rect2(64, 0, 64, 64)
+region = Rect2(0, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4fooj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4myk"]
 atlas = ExtResource("2_axf0c")
-region = Rect2(192, 0, 64, 64)
+region = Rect2(192, 0, 64, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e30bi"]
-atlas = ExtResource("2_axf0c")
-region = Rect2(128, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_eucwr"]
+atlas = ExtResource("4_renbp")
+region = Rect2(128, 0, 64, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pex2t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8t1l"]
 atlas = ExtResource("2_axf0c")
-region = Rect2(0, 64, 64, 64)
+region = Rect2(0, 65, 64, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkfbw"]
+atlas = ExtResource("4_renbp")
+region = Rect2(128, 0, 64, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmih0"]
 atlas = ExtResource("2_axf0c")
@@ -103,16 +104,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_04kfl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oi4jh")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ddh1j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3c2gb")
+"texture": SubResource("AtlasTexture_6vvrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04kfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vvrb")
 }],
 "loop": true,
 "name": &"walkbackward",
@@ -120,16 +121,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_86kmg")
+"texture": SubResource("AtlasTexture_e4myk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4fooj")
+"texture": SubResource("AtlasTexture_eucwr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e30bi")
+"texture": SubResource("AtlasTexture_j8t1l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pex2t")
+"texture": SubResource("AtlasTexture_hkfbw")
 }],
 "loop": true,
 "name": &"walkforward",
@@ -162,8 +163,11 @@ animations = [{
 script = ExtResource("1_rdmte")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(37, 37)
+shape = SubResource("RectangleShape2D_mwooa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(37, 37)
 sprite_frames = SubResource("SpriteFrames_mifuk")
-animation = &"idleright"
+animation = &"idlefront"
+frame_progress = 0.0622711
