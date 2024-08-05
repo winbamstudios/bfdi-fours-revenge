@@ -11,4 +11,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_menu_pressed():
+	$CanvasModulate/AnimationPlayer.play("alpha")
+	
+	$AudioStreamPlayer2D.stop()
+	$AudioStreamPlayer2D/AnimationPlayer.play("volumeslow")
+	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://scenes/World.tscn")

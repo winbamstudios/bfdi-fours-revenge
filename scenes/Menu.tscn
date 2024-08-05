@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://jm8mlwqta4qd"]
+[gd_scene load_steps=17 format=3 uid="uid://jm8mlwqta4qd"]
 
 [ext_resource type="Texture2D" uid="uid://hu6clyitbupb" path="res://assets/bg/battlebg.png" id="1_jxu5e"]
 [ext_resource type="Script" path="res://scenes/switchscenetogame.gd" id="2_eq3q2"]
@@ -20,21 +20,6 @@ font_color = Color(0, 0.423529, 0.713726, 1)
 outline_size = 17
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Animation" id="Animation_ftjcf"]
-resource_name = "logobounce"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../MenuLabel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(790, 249), Vector2(790, 240)]
-}
-
 [sub_resource type="Animation" id="Animation_cs5iq"]
 length = 0.001
 tracks/0/type = "value"
@@ -50,10 +35,97 @@ tracks/0/keys = {
 "values": [Vector2(790, 249)]
 }
 
+[sub_resource type="Animation" id="Animation_ftjcf"]
+resource_name = "logobounce"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../MenuLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(790, 249), Vector2(790, 240)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hw8ku"]
 _data = {
 "RESET": SubResource("Animation_cs5iq"),
 "logobounce": SubResource("Animation_ftjcf")
+}
+
+[sub_resource type="Animation" id="Animation_mwpwa"]
+resource_name = "alpha"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 3.86374),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nuna6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dghxo"]
+_data = {
+"RESET": SubResource("Animation_nuna6"),
+"alpha": SubResource("Animation_mwpwa")
+}
+
+[sub_resource type="Animation" id="Animation_2ono1"]
+resource_name = "volumeslow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.0301856),
+"update": 0,
+"values": [0.0, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_v0def"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_grg3d"]
+_data = {
+"RESET": SubResource("Animation_v0def"),
+"volumeslow": SubResource("Animation_2ono1")
 }
 
 [node name="MarginContainer" type="Node2D"]
@@ -75,6 +147,7 @@ label_settings = SubResource("LabelSettings_jsqx4")
 script = ExtResource("3_krysv")
 
 [node name="Label2" type="Label" parent="MenuLabel"]
+layout_mode = 0
 offset_left = -506.0
 offset_top = -157.0
 offset_right = -302.0
@@ -83,10 +156,11 @@ text = "BFDI:"
 label_settings = SubResource("LabelSettings_jsqx4")
 
 [node name="Label3" type="Label" parent="MenuLabel"]
+layout_mode = 0
 offset_left = -511.0
-offset_top = -109.0
+offset_top = -112.0
 offset_right = 205.0
-offset_bottom = -10.0
+offset_bottom = -13.0
 text = "Four's Revenge"
 label_settings = SubResource("LabelSettings_22i3u")
 
@@ -107,42 +181,65 @@ text = "Continue
 "
 script = ExtResource("2_eq3q2")
 
-[node name="Cutscene" type="Button" parent="."]
-offset_left = 466.0
-offset_top = 486.0
-offset_right = 818.0
-offset_bottom = 514.0
-theme_override_fonts/font = ExtResource("3_wyi2b")
-theme_override_font_sizes/font_size = 16
-text = "Cutscene Test (III Recap)"
-script = ExtResource("2_eq3q2")
+[node name="CanvasModulate" type="CanvasModulate" parent="Continue"]
+position = Vector2(-466, -424)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Continue/CanvasModulate"]
+libraries = {
+"": SubResource("AnimationLibrary_dghxo")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Continue"]
+position = Vector2(-466, -424)
+stream = ExtResource("4_4y654")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Continue/AudioStreamPlayer2D"]
+libraries = {
+"": SubResource("AnimationLibrary_grg3d")
+}
 
 [node name="Cutscene2" type="Button" parent="."]
 offset_left = 466.0
-offset_top = 518.0
+offset_top = 485.0
 offset_right = 818.0
-offset_bottom = 546.0
+offset_bottom = 513.0
 theme_override_fonts/font = ExtResource("3_wyi2b")
 theme_override_font_sizes/font_size = 16
 text = "Cutscene Test (II2 Recap)"
 script = ExtResource("2_eq3q2")
 
+[node name="Credits" type="Button" parent="."]
+offset_left = 466.0
+offset_top = 516.0
+offset_right = 818.0
+offset_bottom = 544.0
+theme_override_fonts/font = ExtResource("3_wyi2b")
+theme_override_font_sizes/font_size = 16
+text = "Credits"
+script = ExtResource("2_eq3q2")
+
 [node name="Quit" type="Button" parent="."]
 offset_left = 466.0
-offset_top = 550.0
+offset_top = 547.0
 offset_right = 818.0
-offset_bottom = 578.0
+offset_bottom = 575.0
 theme_override_fonts/font = ExtResource("3_wyi2b")
 theme_override_font_sizes/font_size = 16
 text = "Quit Game
 "
 script = ExtResource("2_eq3q2")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_4y654")
-autoplay = true
+[node name="Label" type="Label" parent="."]
+offset_left = 2.0
+offset_top = 704.0
+offset_right = 646.0
+offset_bottom = 720.0
+theme_override_fonts/font = ExtResource("3_wyi2b")
+theme_override_font_sizes/font_size = 16
+text = "Programming and Art by Team3D"
 
 [connection signal="pressed" from="Continue" to="Continue" method="_on_menu_pressed"]
-[connection signal="pressed" from="Cutscene" to="MenuLabel" method="_on_cutscene_pressed"]
 [connection signal="pressed" from="Cutscene2" to="MenuLabel" method="_on_cutscene_2_pressed"]
+[connection signal="pressed" from="Credits" to="MenuLabel" method="_on_credits_pressed"]
 [connection signal="pressed" from="Quit" to="MenuLabel" method="_on_quit_pressed"]

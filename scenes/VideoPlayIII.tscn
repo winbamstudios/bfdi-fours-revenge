@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://biedm5g2r066j"]
 
 [ext_resource type="Script" path="res://scenes/VideoControls.gd" id="1_yvtq6"]
-[ext_resource type="VideoStream" path="res://assets/videos/iii recap.ogv" id="2_336wk"]
+[ext_resource type="VideoStream" path="res://assets/videos/ii2 recap.ogv" id="2_336wk"]
 [ext_resource type="FontFile" uid="uid://dcq6ufs8n57j5" path="res://assets/menu/shaglounge.ttf" id="3_yir4b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oknp3"]
