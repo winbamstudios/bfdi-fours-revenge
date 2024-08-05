@@ -89,6 +89,7 @@ step = 1.0
 value = 50.0
 
 [node name="ActualFightPanel" type="Panel" parent="."]
+layout_mode = 0
 offset_top = -7.0
 offset_right = 1277.0
 offset_bottom = 100.0
