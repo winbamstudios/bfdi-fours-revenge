@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b43mekdip1mkm"]
+[gd_scene load_steps=29 format=3 uid="uid://b43mekdip1mkm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_rdmte"]
 [ext_resource type="Texture2D" uid="uid://bo8vtht3qcahj" path="res://assets/characters/pencil-spritesheet.png" id="2_axf0c"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dcq6ufs8n57j5" path="res://assets/menu/shaglounge.ttf" id="6_0mm81"]
 [ext_resource type="Texture2D" uid="uid://ctlt1imgp54k" path="res://assets/characters/hamburger-menu.png" id="7_r0e40"]
 [ext_resource type="PackedScene" uid="uid://c4n6ujpxq7a0r" path="res://scenes/PauseMenu.tscn" id="8_ewcar"]
+[ext_resource type="Script" path="res://scenes/FPS.gd" id="9_kqawt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hx446"]
 atlas = ExtResource("2_axf0c")
@@ -229,5 +230,13 @@ offset_left = -642.0
 offset_top = -362.0
 offset_right = -642.0
 offset_bottom = -362.0
+
+[node name="FPS" type="Label" parent="."]
+offset_left = -633.0
+offset_top = -357.0
+offset_right = -593.0
+offset_bottom = -334.0
+text = "FPS:"
+script = ExtResource("9_kqawt")
 
 [connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]

@@ -95,7 +95,10 @@ func player_movement(delta):
 		velocity.x = 0
 		velocity.y = 0
 	
-	move_and_slide()
+	#move_and_slide()
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		velocity = velocity.slide(collision.get_normal())
 
 
 func _on_pause_pressed() -> void:
